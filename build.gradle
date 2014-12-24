@@ -1,0 +1,43 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'application'
+
+version = "0.1"
+mainClassName = "com.mecatran.insee.extract.Main"
+
+repositories {
+	// Warning -- GeoTools repo should be defined
+	// BEFORE Maven central, otherwise jai-core is
+	// not found. To check out why, please see: 
+	// https://issues.gradle.org/browse/GRADLE-2395
+    maven {
+        // GeoTools (CRS conversion)
+        url "http://download.osgeo.org/webdav/geotools/"
+    }
+	mavenCentral()
+	maven {
+        // dans-dbf-lib (dBase reader)
+        url "http://matsim.org/m2repo"
+    }
+}
+
+dependencies {
+	// dans-dbf dBase lib has a cleaner interface, but is 10x slower than xBaseJ...
+    // compile 'nl.knaw.dans.common:dans-dbf-lib:1.0.0-beta-07'
+    compile 'org.xBaseJ:xbasej:20091203'
+    compile 'org.geotools:gt-epsg-hsql:12.1'
+    compile 'org.geotools:gt-geotiff:12.1'
+    compile 'com.beust:jcommander:1.30'
+    compile 'org.apache.commons:commons-csv:1.0'
+}
+
+task "create-dirs" << {
+    sourceSets*.java.srcDirs*.each { it.mkdirs() }
+    sourceSets*.resources.srcDirs*.each { it.mkdirs() }
+}
+
+jar {
+    manifest {
+        attributes 'Implementation-Version': version
+}   }
+
