@@ -21,7 +21,7 @@ Deux formats sont disponibles: GeoTIFF ou CSV.
 En GeoTiff, le CRS est celui des données sources (EPSG:3035).
 En CSV, il est possible de choisir le CRS de sortie.
 
-Les variables disponibles sont celles des données publiées (population, ages, revenus, mégages...)
+Les variables disponibles sont celles des données publiées (population, ages, revenus, ménages...)
 Elles sont disponibles en sortie à la fois sous forme de somme
 sur un carreau (suffixe 'sum') et normalisé par individu ou ménage (suffixe 'norm').
 
@@ -32,7 +32,7 @@ Utilisation
 -----------
 
 1. Installer un JRE java.
-2. Télécharger le programme (format zip). Extraire le zip dans un répertoire.
+2. Télécharger une release du programme (fichier zip `insee-200m-extract-X.Y.zip`; attention à ne pas confondre avec un zip des sources). Extraire le zip dans un répertoire.
 3. Télécharger les données carroyées 200m de l'INSEE (table des carreaux et des rectangles).
 4. Extraire des zip des données INSEE les fichiers `car_m.dbf` et `rect_m.dbf`, les placer ensemble dans un répertoire.
 5. Ouvrir une ligne de commande et se placer dans le répertoire __où se trouvent les deux fichiers `*.dbf`__.
