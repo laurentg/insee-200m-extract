@@ -336,8 +336,11 @@ public class Insee200mConv {
 		CSVPrinter csvPrinter = CSVFormat.DEFAULT.withHeader(
 				headers.toArray(new String[0])).print(out);
 		for (Carreau carreau : carreaux.values()) {
+			DirectPosition centerPosition = new DirectPosition2D(carreau.position);
+			centerPosition.setOrdinate(0, centerPosition.getOrdinate(0) + 100);
+			centerPosition.setOrdinate(1, centerPosition.getOrdinate(1) + 100);
 			DirectPosition targetPosition = transform.transform(
-					carreau.position, null);
+					centerPosition, null);
 			List<Object> values = new ArrayList<Object>(
 					INSEE_VAR_NAMES.length * 2 + 4);
 			values.add(targetPosition.getOrdinate(0));
