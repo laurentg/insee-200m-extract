@@ -5,9 +5,7 @@ Mise à jour
 -----------
 
 Les données INSEE carroyées sont disponible directement au format CSV
-à l'adresse suivante:
-
-    https://www.data.gouv.fr/fr/datasets/csv-insee-carroyees-a-200-m-sur-la-population/
+à [cette adresse](https://www.data.gouv.fr/fr/datasets/csv-insee-carroyees-a-200-m-sur-la-population/).
 
 La conversion au format CSV de ce script n'est donc probablement plus
 requise. Cependant vous pouvez être intéressé par la conversion en GeoTIFF.
